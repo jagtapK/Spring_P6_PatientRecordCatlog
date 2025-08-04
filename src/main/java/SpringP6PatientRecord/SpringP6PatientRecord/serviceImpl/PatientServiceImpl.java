@@ -6,6 +6,8 @@ import SpringP6PatientRecord.SpringP6PatientRecord.service.PatientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class PatientServiceImpl implements PatientService {
 
@@ -18,4 +20,12 @@ public class PatientServiceImpl implements PatientService {
         Patient patient1 = patientRepository.save(patient);
         return "patient details saved";
     }
+
+    @Override
+    public List<Patient> getAllPatient() {
+        List<Patient> patient = patientRepository.findAll();
+        return patient;
+    }
+
+
 }
