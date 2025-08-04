@@ -4,7 +4,9 @@ import SpringP6PatientRecord.SpringP6PatientRecord.entity.Patient;
 import SpringP6PatientRecord.SpringP6PatientRecord.repository.PatientRepository;
 import SpringP6PatientRecord.SpringP6PatientRecord.service.PatientService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class PatientServiceImpl implements PatientService {
 
     @Autowired
