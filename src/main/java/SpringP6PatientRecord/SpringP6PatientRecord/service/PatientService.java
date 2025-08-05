@@ -13,4 +13,6 @@ public interface PatientService {
     public Patient getById(int id);
 
     public String deleteById(int id);
+
+    Patient updateById(int id, Patient newData);
 }
