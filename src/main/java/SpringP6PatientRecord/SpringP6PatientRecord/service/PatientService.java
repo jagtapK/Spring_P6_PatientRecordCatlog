@@ -9,4 +9,8 @@ public interface PatientService {
     public String savePatient(Patient patient);
 
     public List<Patient> getAllPatient();
+
+    public Patient getById(int id);
+
+    public String deleteById(int id);
 }

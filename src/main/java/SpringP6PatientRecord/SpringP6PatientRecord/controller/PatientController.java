@@ -26,8 +26,25 @@ public class PatientController {
     }
 
     @GetMapping("/getAllPatient")
-    public ResponseEntity<List<Patient>> getAllPatient(){
+    public ResponseEntity<List<Patient>> getAllPatient() {
         List<Patient> patientlist = patientService.getAllPatient();
-        return new ResponseEntity<>(patientlist,HttpStatus.OK);
+        return new ResponseEntity<>(patientlist, HttpStatus.OK);
+    }
+
+    @GetMapping("/getById/{id}")
+    public ResponseEntity<Patient> getById(@PathVariable("id") int id) {
+        Patient patient = patientService.getById(id);
+        if (patient != null) {
+            return ResponseEntity.ok(patient);
+        }
+        else{
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+    @GetMapping("/deleteById/{id}")
+    public ResponseEntity<String> deleteById(int id){
+        String str = patientService.deleteById(id);
+        return new ResponseEntity<>(str,HttpStatus.OK);
     }
 }

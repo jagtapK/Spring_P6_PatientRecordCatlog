@@ -27,5 +27,18 @@ public class PatientServiceImpl implements PatientService {
         return patient;
     }
 
+    @Override
+    public Patient getById(int id) {
+    Patient patient = patientRepository.findById(id).orElseThrow(()
+            ->new NullPointerException("id is not found"+id));
+        return patient;
+    }
+
+    @Override
+    public String deleteById(int id) {
+        patientRepository.deleteById(id);
+        return "Given Id Deleted";
+    }
+
 
 }
