@@ -36,21 +36,20 @@ public class PatientController {
         Patient patient = patientService.getById(id);
         if (patient != null) {
             return ResponseEntity.ok(patient);
-        }
-        else{
+        } else {
             return ResponseEntity.notFound().build();
         }
     }
 
     @GetMapping("/deleteById/{id}")
-    public ResponseEntity<String> deleteById(int id){
+    public ResponseEntity<String> deleteById(int id) {
         String str = patientService.deleteById(id);
-        return new ResponseEntity<>(str,HttpStatus.OK);
+        return new ResponseEntity<>(str, HttpStatus.OK);
     }
 
     @PutMapping("/UpdateById/{id}")
-    public ResponseEntity<Patient> updateById(@PathVariable("id") int id,@RequestBody Patient patient){
+    public ResponseEntity<Patient> updateById(@PathVariable("id") int id, @RequestBody Patient patient) {
         Patient p = patientService.updateById(id, patient);
-        return new ResponseEntity<>(p,HttpStatus.OK);
+        return new ResponseEntity<>(p, HttpStatus.OK);
     }
 }

@@ -29,8 +29,8 @@ public class PatientServiceImpl implements PatientService {
 
     @Override
     public Patient getById(int id) {
-    Patient patient = patientRepository.findById(id).orElseThrow(()
-            ->new NullPointerException("id is not found"+id));
+        Patient patient = patientRepository.findById(id).orElseThrow(()
+                -> new NullPointerException("id is not found" + id));
         return patient;
     }
 
@@ -43,8 +43,8 @@ public class PatientServiceImpl implements PatientService {
     @Override
     public Patient updateById(int id, Patient newData) {
 
-        Patient patient = patientRepository.findById().orElseThrow(()
-                ->new NullPointerException("Id is not found"+id));
+        Patient patient = patientRepository.findById(id).orElseThrow(()
+                -> new NullPointerException("Id is not found" + id));
 
         patient.setName(newData.getName());
         patient.setAge(newData.getAge());
